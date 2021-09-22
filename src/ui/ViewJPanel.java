@@ -5,6 +5,8 @@
  */
 package ui;
 
+import com.toedter.calendar.JDateChooser;
+import javax.swing.ImageIcon;
 import model.User;
 
 /**
@@ -68,7 +70,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         name = new javax.swing.JTextField();
         gd = new javax.swing.JTextField();
         tn = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        jDateChooser1 = new javax.swing.JTextField();
         fn = new javax.swing.JTextField();
         ssn = new javax.swing.JTextField();
         mrn = new javax.swing.JTextField();
@@ -159,7 +161,7 @@ public class ViewJPanel extends javax.swing.JPanel {
 
         tn.setText("jTextField1");
 
-        jTextField4.setText("jTextField1");
+        jDateChooser1.setText("jTextField1");
 
         fn.setText("jTextField1");
 
@@ -190,7 +192,7 @@ public class ViewJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(39, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel14)
                             .addComponent(jLabel17)
@@ -211,13 +213,13 @@ public class ViewJPanel extends javax.swing.JPanel {
                                 .addGap(5, 5, 5))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(jLabelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel15)))
                 .addGap(104, 104, 104)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ssn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mrn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -270,7 +272,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -327,7 +329,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                             .addComponent(jLabel15)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(110, 110, 110)
-                        .addComponent(jLabelImage, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabelImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(11, 11, 11))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -386,6 +388,7 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField gd;
     private javax.swing.JTextField hbn;
     private javax.swing.JTextField ipa;
+    private javax.swing.JTextField jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -419,7 +422,6 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelssn;
     private javax.swing.JLabel jLabelui;
     private javax.swing.JLabel jLableN;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField ln;
     private javax.swing.JTextField mrn;
     private javax.swing.JTextField name;
@@ -434,7 +436,7 @@ public class ViewJPanel extends javax.swing.JPanel {
         gd.setText(user.getGeographicData());
         String telno = String.valueOf(user.getTelephoneNumber());
         tn.setText(telno);
-        user.setDateOfBirth(JFileChooser.getDefaultLocale());
+        //user.setDateOfBirth(JFileChooser.getDefaultLocale());
         String faxno = String.valueOf(user.getFaxNumber());
         fn.setText(faxno);
         ea.setText(user.getEmailAddress());
@@ -451,6 +453,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         String uid = String.valueOf(user.getUniqueIdentifier());
         ui.setText(uid);
         ipa.setText(user.getInternetProtocolAddress());
-        
+        String dob = String.valueOf(user.getDateOfBirth());
+        jDateChooser1.setText(dob);
+        jLabelImage.setIcon(user.getImage());
     }
 }

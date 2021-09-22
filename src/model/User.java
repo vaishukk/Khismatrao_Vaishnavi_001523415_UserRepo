@@ -1,13 +1,15 @@
 package model;
 
+import java.awt.image.BufferedImage;
 import java.util.Date;
+import javax.swing.Icon;
 
 public class User {
 	
 	private String name;
 	private String geographicData;
 	private String internetProtocolAddress;
-	private String dateOfBirth;
+	private Date dateOfBirth;
 	private long telephoneNumber;
 	private long faxNumber;
 	private String emailAddress;
@@ -20,6 +22,18 @@ public class User {
 	private long deviceIndentifiers;
 	private String linkedIn;
 	private long uniqueIdentifier;
+        private Icon Image;
+
+    public Icon getImage() {
+        return Image;
+    }
+
+    public void setImage(Icon Image) {
+        this.Image = Image;
+    }
+        
+        
+       
 	public String getName() {
 		return name;
 	}
@@ -38,10 +52,10 @@ public class User {
 	public void setInternetProtocolAddress(String internetProtocolAddress) {
 		this.internetProtocolAddress = internetProtocolAddress;
 	}
-	public String getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
-	public void setDateOfBirth(String dateOfBirth) {
+	public void setDateOfBirth(Date dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
 	}
 	public long getTelephoneNumber() {
@@ -118,6 +132,10 @@ public class User {
     public void setHealthPlanBeneficiary(String healthPlanBeneficiary) {
         this.healthPlanBeneficiary = healthPlanBeneficiary;
     }
+
+    
+    
+    
         
 	
 	

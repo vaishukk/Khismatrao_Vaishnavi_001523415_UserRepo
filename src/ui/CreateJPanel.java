@@ -10,9 +10,12 @@ package ui;
  * @author Kiran
  */
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -101,6 +104,13 @@ public class CreateJPanel extends javax.swing.JPanel {
             }
         });
 
+        name.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                nameInputMethodTextChanged(evt);
+            }
+        });
         name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameActionPerformed(evt);
@@ -526,9 +536,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         Matcher match =patt.matcher(name.getText());
         if(!match.matches()){
             jLableN.setText("Something went wrong!!");
+            jButton3.setEnabled(false);
         }
         else{
             jLableN.setText(null);
+            jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_nameKeyReleased
 
@@ -544,9 +556,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         Matcher match =patt.matcher(gd.getText());
         if(!match.matches()){
             jLabelG.setText("Something went wrong!!");
+            jButton3.setEnabled(false);
         }
         else{
             jLabelG.setText(null);
+            jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_gdKeyReleased
 
@@ -557,30 +571,54 @@ public class CreateJPanel extends javax.swing.JPanel {
         Matcher match =patt.matcher(tn.getText());
         if(!match.matches()){
             jLabelTN.setText("Something went wrong!!");
+            jButton3.setEnabled(false);
         }
         else{
             jLabelTN.setText(null);
+            jButton3.setEnabled(true);
         }
+        
+        
     }//GEN-LAST:event_tnKeyReleased
 
+//    public ImageIcon resizePic(String picPath){
+//            ImageIcon ii = new ImageIcon(picPath);
+//            Image image  = ii.getImage().getScaledInstance(jLabelImage.getWidth(),jLabelImage.getHeight(), Image.SCALE_SMOOTH);
+//            ImageIcon myPicture = new ImageIcon(image);
+//            return ii;
+//        }
+    
     private void jButtonBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBrowseActionPerformed
         // TODO add your handling code here:
         JFileChooser browseImageFile = new JFileChooser();
-
+        //browseImageFile.setCurrentDirectory(new File(System.getProperty("user.home")));
+        
         FileNameExtensionFilter fnef =  new FileNameExtensionFilter("IMAGES","png","jpg","jpeg");
         browseImageFile.addChoosableFileFilter(fnef);
-        int showOpenDialogue = browseImageFile.showOpenDialog(null);
+        
+        //int showOpenDialogue = browseImageFile.showOpenDialog(null);
+        
+        int showOpenDialogue = browseImageFile.showSaveDialog(null);
 
         if(showOpenDialogue == JFileChooser.APPROVE_OPTION) {
+            
             File selectedImageFile = browseImageFile.getSelectedFile();
             String selectedImagePath = selectedImageFile.getAbsolutePath();
 
             JOptionPane.showMessageDialog(null, selectedImagePath);
+            
+//            jLabelImage.setIcon(resizePic(path));
 
             ImageIcon ii = new ImageIcon(selectedImagePath);
             Image image  = ii.getImage().getScaledInstance(jLabelImage.getWidth(),jLabelImage.getHeight(), Image.SCALE_SMOOTH);
-
+            
             jLabelImage.setIcon(new ImageIcon(image));
+            if (selectedImagePath == null){
+                jButton3.setEnabled(false);
+            }
+            else{
+                jButton3.setEnabled(true);
+            }
         }
     }//GEN-LAST:event_jButtonBrowseActionPerformed
 
@@ -591,9 +629,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         Matcher match =patt.matcher(fn.getText());
         if(!match.matches()){
             jLabelF.setText("Something went wrong!!");
+            jButton3.setEnabled(false);
         }
         else{
             jLabelF.setText(null);
+            jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_fnKeyReleased
 
@@ -604,9 +644,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         Matcher match =patt.matcher(vpn.getText());
         if(!match.matches()){
             jLabelpn.setText("Something went wrong!!");
+            jButton3.setEnabled(false);
         }
         else{
             jLabelpn.setText(null);
+            jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_vpnKeyReleased
 
@@ -617,9 +659,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         Matcher match =patt.matcher(ui.getText());
         if(!match.matches()){
             jLabelui.setText("Something went wrong!!");
+            jButton3.setEnabled(false);
         }
         else{
             jLabelui.setText(null);
+            jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_uiKeyReleased
 
@@ -630,9 +674,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         Matcher match =patt.matcher(ban.getText());
         if(!match.matches()){
             jLabelbs.setText("Something went wrong!!");
+            jButton3.setEnabled(false);
         }
         else{
             jLabelbs.setText(null);
+            jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_banKeyReleased
 
@@ -643,9 +689,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         Matcher match =patt.matcher(ssn.getText());
         if(!match.matches()){
             jLabelssn.setText("Something went wrong!!");
+            jButton3.setEnabled(false);
         }
         else{
             jLabelssn.setText(null);
+            jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_ssnKeyReleased
 
@@ -660,9 +708,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         Matcher match =patt.matcher(mrn.getText());
         if(!match.matches()){
             jLabelM.setText("Something went wrong!!");
+            jButton3.setEnabled(false);
         }
         else{
             jLabelM.setText(null);
+            jButton3.setEnabled(true);
         }
 
     }//GEN-LAST:event_mrnKeyReleased
@@ -674,9 +724,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         Matcher match =patt.matcher(cn.getText());
         if(!match.matches()){
             jLabelcn.setText("Something went wrong!!");
+            jButton3.setEnabled(false);
         }
         else{
             jLabelcn.setText(null);
+            jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_cnKeyReleased
 
@@ -687,9 +739,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         Matcher match =patt.matcher(hbn.getText());
         if(!match.matches()){
             jLabelhbn.setText("Something went wrong!!");
+            jButton3.setEnabled(false);
         }
         else{
             jLabelhbn.setText(null);
+            jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_hbnKeyReleased
 
@@ -700,9 +754,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         Matcher match =patt.matcher(ipa.getText());
         if(!match.matches()){
             jLabelpa.setText("Something went wrong!!");
+            jButton3.setEnabled(false);
         }
         else{
             jLabelpa.setText(null);
+            jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_ipaKeyReleased
 
@@ -713,9 +769,11 @@ public class CreateJPanel extends javax.swing.JPanel {
         Matcher match =patt.matcher(ea.getText());
         if(!match.matches()){
             jLabelea.setText("Something went wrong!!");
+            jButton3.setEnabled(false);
         }
         else{
             jLabelea.setText(null);
+            jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_eaKeyReleased
 
@@ -726,14 +784,17 @@ public class CreateJPanel extends javax.swing.JPanel {
         Matcher match =patt.matcher(ln.getText());
         if(!match.matches()){
             jLabelln.setText("Something went wrong!!");
+            jButton3.setEnabled(false);
         }
         else{
             jLabelln.setText(null);
+            jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_lnKeyReleased
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        
         user.setName(name.getText());
         user.setGeographicData(gd.getText());
         long telno = Integer.parseInt(tn.getText().trim());
@@ -755,10 +816,19 @@ public class CreateJPanel extends javax.swing.JPanel {
         long uid = Integer.parseInt(ui.getText().trim());
         user.setUniqueIdentifier(uid);
         user.setInternetProtocolAddress(ipa.getText().trim());
+        user.setDateOfBirth(jDateChooser1.getDate());
+        user.setImage(jLabelImage.getIcon());
+        
+            JOptionPane.showMessageDialog(this, "User information saved!");
         
         
-        JOptionPane.showMessageDialog(this, "User information saved!");
+        
+         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void nameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_nameInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameInputMethodTextChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
