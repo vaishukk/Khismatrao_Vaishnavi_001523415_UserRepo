@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package ui;
-
+//note: for Email, IP address and LinkedIN try entering full details to enable the save button
 /**
  *
  * @author Kiran
@@ -231,7 +231,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         jLabel1.setText("Name");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jLabel2.setText("Geographic data");
+        jLabel2.setText("Country");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel3.setText("Telephone Number");
@@ -607,11 +607,11 @@ public class CreateJPanel extends javax.swing.JPanel {
 //Checking input pattern for telephone number text field 
     private void tnKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tnKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^[0-9]{0,10}$";//pattern for telephone number text field
+        String PATTERN="^[0-9]{10}$";//pattern for telephone number text field
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(tn.getText());
         if(!match.matches()){ //if pattern does't match display below message and disable save button 
-            jLabelTN.setText("Something went wrong!!");
+            jLabelTN.setText("Enter 10 digit phone number!!");
             jButton3.setEnabled(false);
         }
         else{ //if pattern matches do not display any message and enable the save button
@@ -654,11 +654,11 @@ public class CreateJPanel extends javax.swing.JPanel {
 //Checking input pattern for Fax Number text field 
     private void fnKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fnKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^[0-9]{0,10}$";//pattern for Fax Number field
+        String PATTERN="^[0-9]{10}$";//pattern for Fax Number field
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(fn.getText());
         if(!match.matches()){ //if pattern does't match display below message and disable save button 
-            jLabelF.setText("Something went wrong!!");
+            jLabelF.setText("Enter 10 digit Fax number!!");
             jButton3.setEnabled(false);
         }
         else{ //if pattern matches do not display any message and enable the save button
@@ -699,11 +699,11 @@ public class CreateJPanel extends javax.swing.JPanel {
 //Checking input pattern for Bank Account Number text field 
     private void banKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_banKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^[0-9]{0,9}$";//pattern for Bank Account Number text field
+        String PATTERN="^[0-9]{9}$";//pattern for Bank Account Number text field
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(ban.getText());
         if(!match.matches()){ //if pattern does't match display below message and disable save button 
-            jLabelbs.setText("Something went wrong!!");
+            jLabelbs.setText("Oops!!Enter 9 digit bank number");
             jButton3.setEnabled(false);
         }
         else{ //if pattern matches do not display any message and enable the save button
@@ -714,11 +714,11 @@ public class CreateJPanel extends javax.swing.JPanel {
 //Checking input pattern for Social Security Number text field 
     private void ssnKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ssnKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^[0-9]{0,10}$";//pattern for Social Security number text field
+        String PATTERN="^[0-9]{10}$";//pattern for Social Security number text field
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(ssn.getText());
         if(!match.matches()){ //if pattern does't match display below message and disable save button 
-            jLabelssn.setText("Something went wrong!!");
+            jLabelssn.setText("Enter 10 digit SSN!!");
             jButton3.setEnabled(false);
         }
         else{ //if pattern matches do not display any message and enable the save button
@@ -783,7 +783,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(ipa.getText());
         if(!match.matches()){ //if pattern does't match display below message and disable save button 
-            jLabelpa.setText("Something went wrong!!");
+            jLabelpa.setText("Oops!! Try entering full IP address.");
             jButton3.setEnabled(false);
         }
         else{ //if pattern matches do not display any message and enable the save button
@@ -798,7 +798,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(ea.getText());
         if(!match.matches()){ //if pattern does't match display below message and disable save button 
-            jLabelea.setText("Something went wrong!!");
+            jLabelea.setText("Oops!! Try entering full email address.");
             jButton3.setEnabled(false);
         }
         else{ //if pattern matches do not display any message and enable the save button
@@ -813,7 +813,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(ln.getText());
         if(!match.matches()){ //if pattern does't match display below message and disable save button 
-            jLabelln.setText("Something went wrong!!");
+            jLabelln.setText("Oops!! Try something like https://linkedin.com");
             jButton3.setEnabled(false);
         }
         else{ //if pattern matches do not display any message and enable the save button
