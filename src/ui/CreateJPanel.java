@@ -569,17 +569,17 @@ public class CreateJPanel extends javax.swing.JPanel {
     private void nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameActionPerformed
-
+//Checking input pattern for name text field
     private void nameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^[a-zA-Z]{0,30}$";
+        String PATTERN="^[a-zA-Z]{0,30}$";//pattern for name text field         
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(name.getText());
-        if(!match.matches()){
+        if(!match.matches()){ //if pattern does't match display below message and disable save button 
             jLableN.setText("Something went wrong!!");
             jButton3.setEnabled(false);
         }
-        else{
+        else{ //if pattern matches do not display any message and enable the save button
             jLableN.setText(null);
             jButton3.setEnabled(true);
         }
@@ -589,146 +589,139 @@ public class CreateJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_gdActionPerformed
-
+////Checking input pattern for geographic data text field
     private void gdKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_gdKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^[a-zA-Z]{0,30}$";
+        String PATTERN="^[a-zA-Z]{0,30}$";//pattern for geographic data  text field         
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(gd.getText());
-        if(!match.matches()){
+        if(!match.matches()){ //if pattern does't match display below message and disable save button 
             jLabelG.setText("Something went wrong!!");
             jButton3.setEnabled(false);
         }
-        else{
+        else{ //if pattern matches do not display any message and enable the save button
             jLabelG.setText(null);
             jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_gdKeyReleased
-
+//Checking input pattern for telephone number text field 
     private void tnKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tnKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^[0-9]{0,10}$";
+        String PATTERN="^[0-9]{0,10}$";//pattern for telephone number text field
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(tn.getText());
-        if(!match.matches()){
+        if(!match.matches()){ //if pattern does't match display below message and disable save button 
             jLabelTN.setText("Something went wrong!!");
             jButton3.setEnabled(false);
         }
-        else{
+        else{ //if pattern matches do not display any message and enable the save button
             jLabelTN.setText(null);
             jButton3.setEnabled(true);
         }
         
         
     }//GEN-LAST:event_tnKeyReleased
-
-//    public ImageIcon resizePic(String picPath){
-//            ImageIcon ii = new ImageIcon(picPath);
-//            Image image  = ii.getImage().getScaledInstance(jLabelImage.getWidth(),jLabelImage.getHeight(), Image.SCALE_SMOOTH);
-//            ImageIcon myPicture = new ImageIcon(image);
-//            return ii;
-//        }
-    
+//Action performed on browse photo button    
     private void jButtonBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBrowseActionPerformed
         // TODO add your handling code here:
-        JFileChooser browseImageFile = new JFileChooser();
+        JFileChooser browseImageFile = new JFileChooser();//filechooser obhject created to browse the image file
         //browseImageFile.setCurrentDirectory(new File(System.getProperty("user.home")));
         
-        FileNameExtensionFilter fnef =  new FileNameExtensionFilter("IMAGES","png","jpg","jpeg");
-        browseImageFile.addChoosableFileFilter(fnef);
+        FileNameExtensionFilter fnef =  new FileNameExtensionFilter("IMAGES","png","jpg","jpeg");//file onject created to add extension of the image file
+        browseImageFile.addChoosableFileFilter(fnef);//choose amongst the filter
         
         //int showOpenDialogue = browseImageFile.showOpenDialog(null);
         
-        int showOpenDialogue = browseImageFile.showSaveDialog(null);
-
+        int showOpenDialogue = browseImageFile.showSaveDialog(null);//open window to browse image
+        
         if(showOpenDialogue == JFileChooser.APPROVE_OPTION) {
             
-            File selectedImageFile = browseImageFile.getSelectedFile();
-            String selectedImagePath = selectedImageFile.getAbsolutePath();
+            File selectedImageFile = browseImageFile.getSelectedFile();//Object created to store the image
+            String selectedImagePath = selectedImageFile.getAbsolutePath();//object created to store the absolute path of the image
 
-            JOptionPane.showMessageDialog(null, selectedImagePath);
+            JOptionPane.showMessageDialog(null, selectedImagePath);// window that shows the absolute path of the selected image
             
 //            jLabelImage.setIcon(resizePic(path));
 
-            ImageIcon ii = new ImageIcon(selectedImagePath);
-            Image image  = ii.getImage().getScaledInstance(jLabelImage.getWidth(),jLabelImage.getHeight(), Image.SCALE_SMOOTH);
+            ImageIcon ii = new ImageIcon(selectedImagePath);//ImageIcon object for selected Image 
+            Image image  = ii.getImage().getScaledInstance(jLabelImage.getWidth(),jLabelImage.getHeight(), Image.SCALE_SMOOTH);//adding width height to the image
             
-            jLabelImage.setIcon(new ImageIcon(image));
+            jLabelImage.setIcon(new ImageIcon(image));//setting the selected image to the label for display
             
         }
         
     }//GEN-LAST:event_jButtonBrowseActionPerformed
-
+//Checking input pattern for Fax Number text field 
     private void fnKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fnKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^[0-9]{0,10}$";
+        String PATTERN="^[0-9]{0,10}$";//pattern for Fax Number field
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(fn.getText());
-        if(!match.matches()){
+        if(!match.matches()){ //if pattern does't match display below message and disable save button 
             jLabelF.setText("Something went wrong!!");
             jButton3.setEnabled(false);
         }
-        else{
+        else{ //if pattern matches do not display any message and enable the save button
             jLabelF.setText(null);
             jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_fnKeyReleased
-
+//Checking input pattern for Vehicle Plate Number text field 
     private void vpnKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_vpnKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^[a-zA-Z0-9]{0,15}$";
+        String PATTERN="^[a-zA-Z0-9]{0,15}$";//pattern for Vehicle Plate Number text field
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(vpn.getText());
-        if(!match.matches()){
+        if(!match.matches()){ //if pattern does't match display below message and disable save button 
             jLabelpn.setText("Something went wrong!!");
             jButton3.setEnabled(false);
         }
-        else{
+        else{ //if pattern matches do not display any message and enable the save button
             jLabelpn.setText(null);
             jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_vpnKeyReleased
-
+//Checking input pattern for Unique Identifier text field 
     private void uiKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_uiKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^[0-9]{0,15}$";
+        String PATTERN="^[0-9]{0,15}$";//pattern for Unique Identifier text field
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(ui.getText());
-        if(!match.matches()){
+        if(!match.matches()){ //if pattern does't match display below message and disable save button 
             jLabelui.setText("Something went wrong!!");
             jButton3.setEnabled(false);
         }
-        else{
+        else{ //if pattern matches do not display any message and enable the save button
             jLabelui.setText(null);
             jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_uiKeyReleased
-
+//Checking input pattern for Bank Account Number text field 
     private void banKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_banKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^[0-9]{0,9}$";
+        String PATTERN="^[0-9]{0,9}$";//pattern for Bank Account Number text field
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(ban.getText());
-        if(!match.matches()){
+        if(!match.matches()){ //if pattern does't match display below message and disable save button 
             jLabelbs.setText("Something went wrong!!");
             jButton3.setEnabled(false);
         }
-        else{
+        else{ //if pattern matches do not display any message and enable the save button
             jLabelbs.setText(null);
             jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_banKeyReleased
-
+//Checking input pattern for Social Security Number text field 
     private void ssnKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ssnKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^[0-9]{0,10}$";
+        String PATTERN="^[0-9]{0,10}$";//pattern for Social Security number text field
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(ssn.getText());
-        if(!match.matches()){
+        if(!match.matches()){ //if pattern does't match display below message and disable save button 
             jLabelssn.setText("Something went wrong!!");
             jButton3.setEnabled(false);
         }
-        else{
+        else{ //if pattern matches do not display any message and enable the save button
             jLabelssn.setText(null);
             jButton3.setEnabled(true);
         }
@@ -737,120 +730,119 @@ public class CreateJPanel extends javax.swing.JPanel {
     private void mrnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mrnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mrnActionPerformed
-
+//Checking input pattern for Medical Record Number text field 
     private void mrnKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mrnKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^[a-zA-Z0-9]{0,15}$";
+        String PATTERN="^[a-zA-Z0-9]{0,15}$";//pattern for Medical Record Number text field
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(mrn.getText());
-        if(!match.matches()){
+        if(!match.matches()){ //if pattern does't match display below message and disable save button 
             jLabelM.setText("Something went wrong!!");
             jButton3.setEnabled(false);
         }
-        else{
+        else{ //if pattern matches do not display any message and enable the save button
             jLabelM.setText(null);
             jButton3.setEnabled(true);
         }
 
     }//GEN-LAST:event_mrnKeyReleased
-
+//Checking input pattern for Certificate Number text field 
     private void cnKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cnKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^[0-9]{0,15}$";
+        String PATTERN="^[0-9]{0,15}$";//pattern for Certificate Number text field
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(cn.getText());
-        if(!match.matches()){
+        if(!match.matches()){ //if pattern does't match display below message and disable save button 
             jLabelcn.setText("Something went wrong!!");
             jButton3.setEnabled(false);
         }
-        else{
+        else{ //if pattern matches do not display any message and enable the save button
             jLabelcn.setText(null);
             jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_cnKeyReleased
-
+//Checking input pattern for Health Beneficiary Number text field 
     private void hbnKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_hbnKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^[a-zA-Z0-9]{0,15}$";
+        String PATTERN="^[a-zA-Z0-9]{0,15}$";//pattern for Health Beneficiary Number text field
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(hbn.getText());
-        if(!match.matches()){
+        if(!match.matches()){ //if pattern does't match display below message and disable save button 
             jLabelhbn.setText("Something went wrong!!");
             jButton3.setEnabled(false);
         }
-        else{
+        else{ //if pattern matches do not display any message and enable the save button
             jLabelhbn.setText(null);
             jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_hbnKeyReleased
-
+//Checking input pattern for Internet Protocol Address text field 
     private void ipaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ipaKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b$";
+        String PATTERN="^\\b\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\b$";//pattern for Internet Protocol Address text field
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(ipa.getText());
-        if(!match.matches()){
+        if(!match.matches()){ //if pattern does't match display below message and disable save button 
             jLabelpa.setText("Something went wrong!!");
             jButton3.setEnabled(false);
         }
-        else{
+        else{ //if pattern matches do not display any message and enable the save button
             jLabelpa.setText(null);
             jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_ipaKeyReleased
-
+//Checking input pattern for Email Address text field 
     private void eaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eaKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^[a-zA-Z0-9]{0,30}[@][a-zA-Z0-9]{0,10}[.][a-zA-Z]{0,5}$";
+        String PATTERN="^[a-zA-Z0-9]{0,30}[@][a-zA-Z0-9]{0,10}[.][a-zA-Z]{0,5}$";//pattern for Email Address text field
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(ea.getText());
-        if(!match.matches()){
+        if(!match.matches()){ //if pattern does't match display below message and disable save button 
             jLabelea.setText("Something went wrong!!");
             jButton3.setEnabled(false);
         }
-        else{
+        else{ //if pattern matches do not display any message and enable the save button
             jLabelea.setText(null);
             jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_eaKeyReleased
-
+//Checking input pattern for LinkedIn text field //pattern for LinkedIn text field
     private void lnKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lnKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)$";
+        String PATTERN="^https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)$";//pattern for LinkedIn text field
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(ln.getText());
-        if(!match.matches()){
+        if(!match.matches()){ //if pattern does't match display below message and disable save button 
             jLabelln.setText("Something went wrong!!");
             jButton3.setEnabled(false);
         }
-        else{
+        else{ //if pattern matches do not display any message and enable the save button
             jLabelln.setText(null);
             jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_lnKeyReleased
-
+//Saving all the input text field variables in declared variables of Java class using Set method
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         
         user.setName(name.getText());
         user.setGeographicData(gd.getText());
-        long telno = Integer.parseInt(tn.getText().trim());
+        long telno = Integer.parseInt(tn.getText().trim());//Converting from string to Integer since input text bydefault gives string and variable to be stored is in integer format
         user.setTelephoneNumber(telno);
-        //user.setDateOfBirth(JFileChooser.getDefaultLocale());
-        long faxno = Integer.parseInt(fn.getText().trim());
+        long faxno = Integer.parseInt(fn.getText().trim());//Converting from string to Integer since input text bydefault gives string and variable to be stored is in integer format
         user.setFaxNumber(faxno);
         user.setEmailAddress(ea.getText());
-        long ssnum = Integer.parseInt(ssn.getText().trim());
+        long ssnum = Integer.parseInt(ssn.getText().trim());//Converting from string to Integer since input text bydefault gives string and variable to be stored is in integer format
         user.setSsn(ssnum);
         user.setMedicalRecordNumber(mrn.getText());
         user.setHealthPlanBeneficiary(hbn.getText());
-        long banu = Integer.parseInt(ban.getText());
+        long banu = Integer.parseInt(ban.getText());//Converting from string to Integer since input text bydefault gives string and variable to be stored is in integer format
         user.setBankAccountNumbers(banu);
-        long cnum = Integer.parseInt(cn.getText().trim());
+        long cnum = Integer.parseInt(cn.getText().trim());//Converting from string to Integer since input text bydefault gives string and variable to be stored is in integer format
         user.setLicenseNumber(cnum);
         user.setLicensePlates(vpn.getText().trim());
         user.setLinkedIn(ln.getText());
-        long uid = Integer.parseInt(ui.getText().trim());
+        long uid = Integer.parseInt(ui.getText().trim());//Converting from string to Integer since input text bydefault gives string and variable to be stored is in integer format
         user.setUniqueIdentifier(uid);
         user.setInternetProtocolAddress(ipa.getText().trim());
         user.setDateOfBirth(jDateChooser1.getDate());

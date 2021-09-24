@@ -482,27 +482,27 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField ui;
     private javax.swing.JTextField vpn;
     // End of variables declaration//GEN-END:variables
-
+//Data retrieval from main user class and setting it in the view panel text fields
     private void viewUser() {
         name.setText(user.getName());
         gd.setText(user.getGeographicData());
-        String telno = String.valueOf(user.getTelephoneNumber());
+        String telno = String.valueOf(user.getTelephoneNumber());//Converting from Integer to String since input text bydefault takes string and variable stored is in integer format
         tn.setText(telno);
         //user.setDateOfBirth(JFileChooser.getDefaultLocale());
-        String faxno = String.valueOf(user.getFaxNumber());
+        String faxno = String.valueOf(user.getFaxNumber()); //Converting from Integer to String since input text bydefault takes string and variable stored is in integer format
         fn.setText(faxno);
         ea.setText(user.getEmailAddress());
-        String ssnum = String.valueOf(user.getSsn());
+        String ssnum = String.valueOf(user.getSsn());//Converting from Integer to String since input text bydefault takes string and variable stored is in integer format
         ssn.setText(ssnum);
         mrn.setText(user.getMedicalRecordNumber());
         hbn.setText(user.getHealthPlanBeneficiary());
-        String banu = String.valueOf(user.getBankAccountNumbers());
+        String banu = String.valueOf(user.getBankAccountNumbers());//Converting from Integer to String since input text bydefault takes string and variable stored is in integer format
         bn.setText(banu);
-        String cnum = String.valueOf(user.getLicenseNumber());
+        String cnum = String.valueOf(user.getLicenseNumber());//Converting from Integer to String since input text bydefault takes string and variable stored is in integer format
         cn.setText(cnum);
         vpn.setText(user.getLicensePlates());
         ln.setText(user.getLinkedIn());
-        String uid = String.valueOf(user.getUniqueIdentifier());
+        String uid = String.valueOf(user.getUniqueIdentifier());//Converting from Integer to String since input text bydefault takes string and variable stored is in integer format
         ui.setText(uid);
         ipa.setText(user.getInternetProtocolAddress());
         String dob = String.valueOf(user.getDateOfBirth());

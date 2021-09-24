@@ -157,17 +157,17 @@ public class MainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//Action performed to redirect to create panel from main frame
     private void CreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CreateActionPerformed
         // TODO add your handling code here:
         CreateJPanel createPanel = new CreateJPanel(user);
-        jSplitPane1.setRightComponent(createPanel);
+        jSplitPane1.setRightComponent(createPanel);//sets the component in right side of the split panel
     }//GEN-LAST:event_CreateActionPerformed
-
+//Action performed to redirect to view Panel from main frame
     private void ViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewActionPerformed
         // TODO add your handling code here:
         ViewJPanel viewPanel = new ViewJPanel(user);
-        jSplitPane1.setRightComponent(viewPanel);
+        jSplitPane1.setRightComponent(viewPanel); //sets the component in right side of the split panel
     }//GEN-LAST:event_ViewActionPerformed
 
     /**
