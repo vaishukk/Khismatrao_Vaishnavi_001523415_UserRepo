@@ -23,6 +23,17 @@ public class User {
 	private String linkedIn;
 	private long uniqueIdentifier;
         private Icon Image;
+        private BufferedImage Image1;
+
+    public BufferedImage getImage1() {
+        return Image1;
+    }
+
+    public void setImage1(BufferedImage Image1) {
+        this.Image1 = Image1;
+    }
+        
+        
 
     public Icon getImage() {
         return Image;

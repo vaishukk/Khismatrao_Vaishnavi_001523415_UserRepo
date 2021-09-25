@@ -10,11 +10,14 @@ package ui;
  * @author Kiran
  */
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 
 import java.io.File;
+import java.io.IOException;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.imageio.ImageIO;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -26,6 +29,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateJPanel
      */
+    private BufferedImage Image1;
     User user;
     public CreateJPanel(User user) {
         initComponents();
@@ -624,29 +628,37 @@ public class CreateJPanel extends javax.swing.JPanel {
 //Action performed on browse photo button    
     private void jButtonBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBrowseActionPerformed
         // TODO add your handling code here:
+        this.Image1 = null;
         JFileChooser browseImageFile = new JFileChooser();//filechooser obhject created to browse the image file
         //browseImageFile.setCurrentDirectory(new File(System.getProperty("user.home")));
+        
         
         FileNameExtensionFilter fnef =  new FileNameExtensionFilter("IMAGES","png","jpg","jpeg");//file onject created to add extension of the image file
         browseImageFile.addChoosableFileFilter(fnef);//choose amongst the filter
         
         //int showOpenDialogue = browseImageFile.showOpenDialog(null);
-        
+        //int DialogueState = browseImageFile.showSaveDialog(this);
         int showOpenDialogue = browseImageFile.showSaveDialog(null);//open window to browse image
         
         if(showOpenDialogue == JFileChooser.APPROVE_OPTION) {
             
             File selectedImageFile = browseImageFile.getSelectedFile();//Object created to store the image
-            String selectedImagePath = selectedImageFile.getAbsolutePath();//object created to store the absolute path of the image
+            //String selectedImagePath = selectedImageFile.getAbsolutePath();//object created to store the absolute path of the image
 
-            JOptionPane.showMessageDialog(null, selectedImagePath);// window that shows the absolute path of the selected image
+            //JOptionPane.showMessageDialog(null, selectedImagePath);// window that shows the absolute path of the selected image
             
 //            jLabelImage.setIcon(resizePic(path));
-
-            ImageIcon ii = new ImageIcon(selectedImagePath);//ImageIcon object for selected Image 
-            Image image  = ii.getImage().getScaledInstance(jLabelImage.getWidth(),jLabelImage.getHeight(), Image.SCALE_SMOOTH);//adding width height to the image
+            try {
+                this.Image1 = ImageIO.read(selectedImageFile);
+                ImageIcon ii = new ImageIcon(Image1);//ImageIcon object for selected Image 
+                Image image  = ii.getImage().getScaledInstance(jLabelImage.getWidth(),jLabelImage.getHeight(), Image.SCALE_SMOOTH);//adding width height to the image
+                jLabelImage.setIcon(new ImageIcon(image));//setting the selected image to the label for display
+            } catch (IOException ex){
+                JOptionPane.showMessageDialog(this, "Image is not uploaded");
+            }
             
-            jLabelImage.setIcon(new ImageIcon(image));//setting the selected image to the label for display
+            
+            
             
         }
         
@@ -825,6 +837,17 @@ public class CreateJPanel extends javax.swing.JPanel {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         
+        if(this.Image1 == null){
+            JOptionPane.showMessageDialog(this, "Please add image", "Image is mandatory", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        savetoUser();
+        
+        
+         
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void savetoUser(){
         user.setName(name.getText());
         user.setGeographicData(gd.getText());
         long telno = Integer.parseInt(tn.getText().trim());//Converting from string to Integer since input text bydefault gives string and variable to be stored is in integer format
@@ -848,16 +871,8 @@ public class CreateJPanel extends javax.swing.JPanel {
         user.setDateOfBirth(jDateChooser1.getDate());
         user.setImage(jLabelImage.getIcon());
         
-        
-      
-        
         JOptionPane.showMessageDialog(this, "User information saved!");
-        
-        
-        
-         
-    }//GEN-LAST:event_jButton3ActionPerformed
-
+    }
     private void nameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_nameInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_nameInputMethodTextChanged
