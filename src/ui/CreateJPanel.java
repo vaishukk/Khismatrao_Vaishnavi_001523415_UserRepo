@@ -596,7 +596,7 @@ public class CreateJPanel extends javax.swing.JPanel {
 //Checking input pattern for telephone number text field 
     private void tnKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tnKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^[0-9]{10}$";//pattern for telephone number text field
+        String PATTERN="^[0-9]{0,10}$";//pattern for telephone number text field
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(tn.getText());
         if(!match.matches()){ //if pattern does't match display below message and disable save button 
@@ -651,7 +651,7 @@ public class CreateJPanel extends javax.swing.JPanel {
 //Checking input pattern for Fax Number text field 
     private void fnKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fnKeyReleased
         // TODO add your handling code here:
-        String PATTERN="^[0-9]{10}$";//pattern for Fax Number field
+        String PATTERN="^[0-9]{0,10}$";//pattern for Fax Number field
         Pattern patt=Pattern.compile(PATTERN);
         Matcher match =patt.matcher(fn.getText());
         if(!match.matches()){ //if pattern does't match display below message and disable save button 
